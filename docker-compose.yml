@@ -1,0 +1,17 @@
+version: "2"
+services:
+    web:
+        image: nginx:1.11.10
+        container_name: web
+        ports:
+            - "8080:80"
+        volumes:
+            - .:/code
+            - ./docker/site.conf:/etc/nginx/conf.d/site.conf
+        links:
+            - php
+    php:
+        image: php:7.0.16-fpm
+        container_name: php
+        volumes:
+            - .:/code

@@ -1,0 +1,12 @@
+version: "2"
+services:
+    web:
+        volumes:
+            - symfony3:/code:rw
+    php:
+        volumes:
+            - symfony3:/code:rw
+
+volumes:
+    symfony3:
+        external: true
