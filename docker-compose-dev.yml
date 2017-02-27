@@ -1,9 +1,9 @@
 version: "2"
 services:
-    web:
+    benchmark_doctrine_web:
         volumes:
             - symfony3:/code:rw
-    php:
+    benchmark_doctrine_php:
         volumes:
             - symfony3:/code:rw
 

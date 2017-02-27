@@ -1,17 +1,28 @@
 version: "2"
 services:
-    web:
+    benchmark_doctrine_web:
         image: nginx:1.11.10
-        container_name: web
+        container_name: benchmark_doctrine_web
         ports:
             - "8080:80"
         volumes:
             - .:/code
             - ./docker/site.conf:/etc/nginx/conf.d/site.conf
         links:
-            - php
-    php:
+            - benchmark_doctrine_php
+
+    benchmark_doctrine_php:
         image: php:7.0.16-fpm
-        container_name: php
+        container_name: benchmark_doctrine_php
         volumes:
             - .:/code
+        links:
+            - benchmark_doctrine_mysql
+
+    benchmark_doctrine_mysql:
+        image: mysql:5.7.17
+        container_name: benchmark_doctrine_mysql
+        ports:
+            - "13306:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
