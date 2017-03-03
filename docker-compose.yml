@@ -1,23 +1,50 @@
 version: "2"
 services:
+    benchmark_doctrine_code:
+#        build:
+#            context: ./docker/code
+        build:
+            context: ../../.
+            dockerfile: ./docker/code/Dockerfile
+        container_name: benchmark_doctrine_code
+        volumes:
+            - .:/code
+        entrypoint: tail -f /dev/null
+
     benchmark_doctrine_web:
         image: nginx:1.11.10
         container_name: benchmark_doctrine_web
         ports:
             - "8080:80"
+        volumes_from:
+            - benchmark_doctrine_code
         volumes:
-            - .:/code
-            - ./docker/site.conf:/etc/nginx/conf.d/site.conf
+#            - .:/code
+            - ./docker/nginx/site.conf:/etc/nginx/conf.d/site.conf
         links:
             - benchmark_doctrine_php
 
     benchmark_doctrine_php:
-        image: php:7.0.16-fpm
+        #image: php:7.0.16-fpm
+        build: ./docker/php-fpm
         container_name: benchmark_doctrine_php
-        volumes:
-            - .:/code
+        volumes_from:
+            - benchmark_doctrine_code
+#        volumes:
+#            - .:/code
         links:
             - benchmark_doctrine_mysql
+
+    benchmark_doctrine_php_cli:
+        build: ./docker/php-cli
+        container_name: benchmark_doctrine_php_cli
+        volumes_from:
+            - benchmark_doctrine_code
+#        volumes:
+#            - .:/code
+        links:
+            - benchmark_doctrine_mysql
+        entrypoint: tail -f /dev/null
 
     benchmark_doctrine_mysql:
         image: mysql:5.7.17
