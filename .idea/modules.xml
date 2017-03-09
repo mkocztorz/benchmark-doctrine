@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/benchmark-doctrine.iml" filepath="$PROJECT_DIR$/.idea/benchmark-doctrine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../docker/compose1/.idea/compose1.iml" filepath="$PROJECT_DIR$/../../docker/compose1/.idea/compose1.iml" />
     </modules>
   </component>
 </project>

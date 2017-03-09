@@ -3,9 +3,9 @@ services:
     benchmark_doctrine_code:
 #        build:
 #            context: ./docker/code
-        build:
-            context: ../../.
-            dockerfile: ./docker/code/Dockerfile
+        build: ./docker/code
+#            context: ../../.
+#            dockerfile: ./docker/code/Dockerfile
         container_name: benchmark_doctrine_code
         volumes:
             - .:/code

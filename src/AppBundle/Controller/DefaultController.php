@@ -15,10 +15,10 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         /** @var Connection $connection */
-        $connection = $this->getDoctrine()->getConnection();
-        $connection->connect();
-        $connection->executeQuery('SELECT * FROM aaa');
-        $connection->close();
+        //$connection = $this->getDoctrine()->getConnection();
+        //$connection->connect();
+        //$connection->executeQuery('SELECT * FROM aaa');
+        //$connection->close();
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
