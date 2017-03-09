@@ -2,10 +2,9 @@ FROM debian:jessie
 
 MAINTAINER Michał Kocztorz <kocztorz@gmail.com>
 
-COPY ./entrypoint.sh /tmp/entrypoint.sh
+ENTRYPOINT tail -f /dev/null
 
-RUN touch /tmp/aaaaa
-
+#COPY ./entrypoint.sh /tmp/entrypoint.sh
+#RUN touch /tmp/aaaaa
 # does not get executed
-#ENTRYPOINT tail -f /dev/null
 #CMD /bin/bash

@@ -1,18 +1,9 @@
 version: "2"
 services:
-    benchmark_doctrine_code:
+    code:
         volumes:
             - symfony3:/code:rw
-#
-#    benchmark_doctrine_web:
-#        volumes:
-#            - symfony3:/code:rw
-#    benchmark_doctrine_php:
-#        volumes:
-#            - symfony3:/code:rw
-#    benchmark_doctrine_php_cli:
-#        volumes:
-#            - symfony3:/code:rw
+
 volumes:
     symfony3:
         external: true

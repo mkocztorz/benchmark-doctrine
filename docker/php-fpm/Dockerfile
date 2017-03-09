@@ -15,7 +15,7 @@ RUN docker-php-ext-install pdo pdo_mysql
 # CMD ["php-fpm", "-F"]
 # EXPOSE 9000
 
-
-RUN usermod -u 1000 www-data
-RUN chown -R www-data:www-data /code/var/cache
-RUN chown -R www-data:www-data /code/var/logs
+#
+#RUN usermod -u 1000 www-data
+#RUN chown -R www-data:www-data /code/var/cache
+#RUN chown -R www-data:www-data /code/var/logs
